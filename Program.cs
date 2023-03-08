@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.ConstrainedExecution;
-using Animal;
+using Animal.Models.Animals;
 
 public class Program
 {

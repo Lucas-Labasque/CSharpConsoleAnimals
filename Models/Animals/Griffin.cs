@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 // classe Griffin qui hérite Animals
-namespace Animal
+namespace Animal.Models.Animals
 {
     public class Griffin : Animals
     {
