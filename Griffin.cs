@@ -10,6 +10,8 @@ namespace Animal
 {
     public class Griffin : Animals
     {
+
+
         // méthode abstraite Move
         public override void Move()
         {
