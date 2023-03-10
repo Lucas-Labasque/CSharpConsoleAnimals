@@ -1,34 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Globalization;
 
-public abstract class Animals
+namespace CSharpAnimal.Models.Animals
 {
-    public string Name { get; set; }
-
-    // Constructeur
-    public Animals()
+    abstract public class Animal
     {
-        this.Name = "Mowgli";
+        public Animal()
+        {
+            this.name = "Cat";
+            this.Type = "commun";
+            this.Id = 1;
+        }
+        public Animal(string name, string type, int id)
+        {
+            this.name = name;
+            this.Type = type;
+            this.Id = id;
+
+        }
+        public string name { get; set; }
+        public string Type { get; set; }
+        public int Id { get; set; }
+        public virtual void Moove()
+        {
+            Console.WriteLine("Moove !");
+        }
+        public virtual void Sleep()
+        {
+            Console.WriteLine("Sleep !");
+        }
+
     }
-
-    // Constructeur (Name)      
-    public Animals(string name)
-    {
-        this.Name = name;
-    }
-
-
-    public void SetName(string name)
-    {
-        this.Name = name;
-    }
-
-    // Méthode abstraite Move
-    public abstract void Move();
-
-    // Méthode abstraite Sleep
-    public abstract void Sleep();
 }

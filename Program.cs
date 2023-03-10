@@ -1,33 +1,71 @@
-﻿using System;
-using System.Runtime.ConstrainedExecution;
-using Animal.Models.Animals;
+﻿
+using CSharpAnimal.Models.Animals;
 
-public class Program
+class Program
 {
-    // Définition de la méthode Main
-    public static void Main()
+    static void Main(string[] args)
     {
-        // Instanciation classe Griffin
-        Griffin griffin = new Griffin();
-        Griffin griffin2 = new Griffin();
+        Animal animal = new Dragon();
+        animal.Sleep();
+        animal.Moove();
 
-        Dragon dragon = new Dragon();
-        Dragon dragon2 = new Dragon();
+        Animal animal2 = new Griffin();
+        animal2.Sleep();
+        animal2.Moove();
 
 
-        griffin.Name = "Antoine";
-        griffin2.Name = "Evan";
 
-        // A nom de chaque animal
-        Console.WriteLine("Animal 1 : " + griffin.Name);
-        Console.WriteLine("Animal 2 : " + griffin2.Name);
-        Console.WriteLine("Animal 3 : " + dragon.Name);
-        Console.WriteLine("Animal 4 : " + dragon2.Name);
-        
-        // Appel des méthodes 
-        griffin.Move();
-        griffin.Sleep();
-        griffin2.Move();
-        griffin2.Sleep();
+        Dog dog = new Dog("Loup", "Epic", 10);
+        Dragon enderDragon = new Dragon("Ender Dragon", "Legendary", 99);
+        Griffin griffin = new Griffin("GriffonDort", "Rare", 5);
+        Dragon ptera = new Dragon("Ptera", "Commun", 1);
+        Dog wolf = new Dog("Wolf", "Commun", 2);
+        Dog ben = new Dog("Ben", "Commun", 20);
+
+        Animal[] liste = { dog, enderDragon, griffin, ptera, wolf, ben };
+        //var result = liste.Where(c => !c.Type.Contains("Rare"));
+
+        //foreach (Animal animaux in result)
+        //{
+        //    Console.WriteLine(animaux.Name, animaux.Id);
+        //}
+
+        IEnumerable<Animal> listeAnimaux =
+            from animaux in liste
+            where animaux.Type == "Commun"
+            select animaux;
+
+        var sortedliste = listeAnimaux.OrderByDescending(c => c.Id).ToList();
+
+
+
+        foreach (Animal animaux in sortedliste)
+        {
+            Console.WriteLine(animaux.name);
+        }
+
+
+        //Dog dog1 = new Dog("Loup");
+        //Dog dog2 = new Dog("Enzo");
+        //Dog dog3 = new Dog("Antoine");
+        //Dog dog4 = new Dog("Raphaël");
+        //Dog dog5 = new Dog("snow");
+        //Dog[] dogs = { dog1, dog2, dog3, dog4, dog5 };
+        //IEnumerable<Dog> differentThanSnow =
+        //    from dog in dogs
+        //    where dog.dogName != "snow"
+        //    select dog;
+
+
+        //Console.WriteLine("\nLes dogs sont : ");
+
+
+        //foreach (Dog dog in differentThanSnow)
+        //{
+        //    Console.WriteLine(dog.dogName);
+        //}
+
+
+        Console.ReadLine();
     }
 }

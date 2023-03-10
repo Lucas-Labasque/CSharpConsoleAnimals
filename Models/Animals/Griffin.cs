@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using CSharpAnimal.Models.Animals;
 
-// classe Griffin qui hérite Animals
-namespace Animal.Models.Animals
+namespace CSharpAnimal.Models.Animals
 {
-    public class Griffin : Animals
+    class Griffin : Animal, IPilotage
     {
-
-
-        // méthode abstraite Move
-        public override void Move()
+        public Griffin()
         {
-            Console.WriteLine($"{Name} est entrain de marcher.");
+            name = "Griffin";
+        }
+        public Griffin(string name, string type, int ID)
+        {
+            this.name = name;
+            this.Type = type;
+            this.Id = ID;
         }
 
-        // méthode abstraite Sleep
-        public override void Sleep()
+        public override void Moove()
         {
-            Console.WriteLine($"{Name} est entrain de dormir.");
+            Console.WriteLine($"{name} moove");
+        }
+
+        public new void Sleep()
+        {
+            Console.WriteLine($"{name} sleep");
         }
     }
 }

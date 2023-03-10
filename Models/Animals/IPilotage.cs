@@ -1,0 +1,4 @@
+﻿interface IPilotage
+{
+    void Moove();
+}
