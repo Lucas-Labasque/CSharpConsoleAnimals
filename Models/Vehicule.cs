@@ -1,5 +1,4 @@
-﻿
-namespace CSharpAnimal.Models.Animals
+﻿namespace Animal.Models
 {
 
     class Vehicule : IPilotage

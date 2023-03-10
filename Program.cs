@@ -1,18 +1,35 @@
-﻿
+﻿using Animal.Models;
 using CSharpAnimal.Models.Animals;
+using AnimalModel = CSharpAnimal.Models.Animals;
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        Animal animal = new Dragon();
+        Console.WriteLine("Le dragon : ");
+        AnimalModel.Dragon animal = new Dragon();
         animal.Sleep();
         animal.Moove();
+        animal.Fly();
 
-        Animal animal2 = new Griffin();
+        Console.WriteLine("\nLe Griffin : ");
+        AnimalModel.Griffin animal2 = new Griffin();
         animal2.Sleep();
         animal2.Moove();
+        animal2.Fly();
 
+        Console.WriteLine("\nL'oiseau : ");
+        AnimalModel.Bird animal3 = new Bird();
+        animal3.Sleep();
+        animal3.Fly();
+
+        Console.WriteLine("\nL'aigle : ");
+        AnimalModel.Eagle animal4 = new Eagle();
+        animal4.Sleep();
+        animal4.Fly();
+
+        Console.WriteLine("\n\n\n\n ");
 
 
         Dog dog = new Dog("Loup", "Epic", 10);
@@ -22,7 +39,7 @@ class Program
         Dog wolf = new Dog("Wolf", "Commun", 2);
         Dog ben = new Dog("Ben", "Commun", 20);
 
-        Animal[] liste = { dog, enderDragon, griffin, ptera, wolf, ben };
+        AnimalModel.Animal[] liste = { dog, enderDragon, griffin, ptera, wolf, ben };
         //var result = liste.Where(c => !c.Type.Contains("Rare"));
 
         //foreach (Animal animaux in result)
@@ -30,7 +47,7 @@ class Program
         //    Console.WriteLine(animaux.Name, animaux.Id);
         //}
 
-        IEnumerable<Animal> listeAnimaux =
+        IEnumerable<AnimalModel.Animal> listeAnimaux =
             from animaux in liste
             where animaux.Type == "Commun"
             select animaux;
@@ -39,7 +56,7 @@ class Program
 
 
 
-        foreach (Animal animaux in sortedliste)
+        foreach (AnimalModel.Animal animaux in sortedliste)
         {
             Console.WriteLine(animaux.name);
         }
